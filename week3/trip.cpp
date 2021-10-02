@@ -14,6 +14,5 @@ void find(int arr[], int n) {
             else s.insert(arr[j]);
         }
     }
- 
     if (a == false) cout << "Not Found" << endl;
 }
