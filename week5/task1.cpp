@@ -3,7 +3,7 @@ using namespace std;
 
 struct Node {
     int data;
-    vector<Node*> children = vector<Node*>();
+    vector<Node*> children;
     Node() {
 
     }
