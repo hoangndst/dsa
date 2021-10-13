@@ -60,9 +60,24 @@ public:
         }
     }
 
-    void quick_sort() {
-        for (int i = 0; i < size; i++) {
-            int pivot = arr[i];
+    int getPivot(int left, int right) {
+        int pivot = arr[right];
+        int i = left - 1;
+        for (int j = left; j < right; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr[i], arr[j]);
+            }
+        }
+        swap(arr[i + 1], arr[right]);
+        return i + 1;
+    }
+
+    void quick_sort(int left, int right) {
+        if (left < right) {
+            int pivot = getPivot(left, right);
+            quick_sort(left, pivot - 1);
+            quick_sort(pivot + 1, right);
         }
     }
 };
@@ -77,7 +92,7 @@ int main() {
     solution s(size);
     s.set_arr(arr);
     s.print_arr();
-    s.bubble_sort();
+    s.quick_sort(0, size - 1);
     s.print_arr();
     return 0;
 }
