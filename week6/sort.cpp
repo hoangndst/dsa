@@ -80,6 +80,33 @@ public:
             quick_sort(pivot + 1, right);
         }
     }
+
+    void heapify(int *arr, int n, int root) {
+        int largest = root;
+        int l = 2 * root + 1;
+        int r = 2 * root + 2;
+        if (l < n && arr[l] > arr[largest]) {
+            largest = l;
+        }
+        if (r < n && arr[r] > arr[largest]) {
+            largest = r;
+        }
+        if (largest != root) {
+            swap(arr[root], arr[largest]);
+            heapify(arr, n, largest);
+        }
+    }
+
+    void heap_sort() {
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            heapify(arr, size, i);
+        }
+        for (int i = size - 1; i >= 0; i--) {
+            swap(arr[0], arr[i]);
+            heapify(arr, i, 0);
+        }
+    }
+
 };
 
 int main() {

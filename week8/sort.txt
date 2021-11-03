@@ -1,0 +1,81 @@
+1.
+Tính chất của SS
+Tính ổn định (stable), tính tại chỗ (in-place):
+stable: nếu vị trí tương đối của các phần tử bằng nhau được bảo toàn.
+in-place: nếu không dùng mảng phụ (có thể dùng c biến phụ, c tiểu học)
+Xét tính ổn định và tại chỗ của các thuật toán sắp xếp đã học.
+
+2. 
+Cho các loại dữ liệu sau:
+Ngẫu nhiên 
+Sắp xếp
+Sắp xếp ngược
+Bằng nhau
+Chỉ một hằng số phần tử sai vị trí
+
+Xác định các thuật toán sắp xếp đã học, thực hiện tốt/kém với các loại dữ liệu trên.
+
+-------------------------------------------------------------------------------------
+
+Bubble sort and Insertion sort – 
+Best case time complexity: O(n) khi đã sắp xếp rồi 
+Worst case: when the array is reverse sorted.
+Average and worst case time complexity: O(n^2) khi săp xếp đảo ngược
+
+Selection sort – 
+Best, average and worst case time complexity: O(n^2)
+
+Merge sort – 
+Best, average and worst case time complexity: O(nlogn)
+
+Heap sort – 
+Best, average and worst case time complexity: O(nlogn) 
+ 
+Quick sort – 
+It is a divide and conquer approach with recurrence relation: 
+    T(n) = T(k) + T(n-k-1) + cn
+Worst case: khi mảng được sắp xếp hoặc sắp xếp ngược, thuật toán phân vùng sẽ 
+chia mảng thành hai mảng con có 0 và n-1 phần tử. Vì vậy, 
+    T(n) = T(0) + T(n-1) + cn
+
+Solving this we get, T(n) = O(n^2)
+
+Best case and Average case: Trung bình, thuật toán phân vùng chia mảng thành 
+hai mảng con với kích thước bằng nhau. Vì vậy, 
+ 
+    T(n) = 2T(n/2) + cn
+Solving this we get, T(n) = O(nlogn)
+
+Out-place sorting: Merge sort (nó yêu cầu một mảng bổ sung để hợp nhất các mảng con đã được sắp xếp.)
+In-place sorting: Selection sort, Quick sort, Heap sort
+
+
+Một kỹ thuật sắp xếp là ổn định nếu nó không thay đổi thứ tự của các phần tử có cùng giá trị.
+
++ sắp xếp bong bóng, sắp xếp chèn và sắp xếp hợp nhất là các kỹ thuật ổn định.
+
++ Sắp xếp lựa chọn không ổn định vì nó có thể thay đổi thứ tự của các phần tử có cùng giá trị. Ví dụ, hãy xem xét mảng 4, 4, 1, 3.
+Trong lần lặp đầu tiên, phần tử tối thiểu được tìm thấy là 1 và nó được đổi chỗ với 4 ở vị trí thứ 0. Do đó, thứ tự của 4 đối với 
+4 ở vị trí đầu tiên sẽ thay đổi. Tương tự, sắp xếp nhanh và sắp xếp theo đống cũng không ổn định.
+
+Ngẫu nhiên: 
+Heap sort, Merge sort. O(nlogn) | Bubble sort, Insertion sort. O(n^2)
+
+Sắp xếp: 
+Bubble sort, Insertion sort. O(n) | Quick sort. O(n^2)
+
+Sắp xếp ngược: 
+Heap sort, Merge sort. O(nlogn) | Bubble sort, Insertion sort. O(n^2)
+
+Bằng nhau: 
+Insertion sort, Bubble sort. O(n)
+
+Chỉ một hằng số phần tử sai vị trí: 
+Heap sort, Merge sort. O(nlogn) | Insertion sort 
+
+
+Heap sort (không ổn định): 
+Chuỗi cuối cùng của kết quả từ heapsort đến từ việc xóa các mục khỏi heap đã tạo 
+theo thứ tự kích thước hoàn toàn (dựa trên trường khóa).
+Bất kỳ thông tin nào về thứ tự của các mục trong trình tự ban đầu đều bị mất 
+trong giai đoạn tạo đống, đến trước.
