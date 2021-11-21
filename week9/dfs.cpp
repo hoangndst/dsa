@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <stack>
 #include <map>
 using namespace std;
 
@@ -13,6 +14,7 @@ public:
     Graph(int V);
     void addEdge(int v, int w);
     void DFS(int v);
+    void DFSNonRecursive(int v);
 };
 
 Graph::Graph(int V) {
@@ -35,4 +37,41 @@ void Graph::DFS(int v) {
             DFS(*i);
         }
     }
+}
+
+void Graph::DFSNonRecursive(int v) {
+    vector<bool> vst(V, false);
+    stack<int> s;
+    s.push(v);
+    while(!s.empty()) {
+        int temp = s.top();
+        s.pop();
+        if (!vst[temp]) {
+            cout << temp << " ";
+            vst[temp] = true;
+        }
+        list<int>::iterator i;
+        for (i = adj[temp].begin(); i != adj[temp].end(); i++) {
+            if (!vst[*i]) {
+                s.push(*i);
+            }
+        }
+    }
+}
+
+int main() {
+
+    Graph g(5); // Total 5 vertices in graph
+    g.addEdge(1, 0);
+    g.addEdge(0, 2);
+    g.addEdge(2, 1);
+    g.addEdge(0, 3);
+    g.addEdge(1, 4);
+    g.DFS(0);
+    cout << endl;
+    cout << "Following is Depth First Traversal\n";
+    g.DFSNonRecursive(0);
+ 
+
+    return 0;
 }

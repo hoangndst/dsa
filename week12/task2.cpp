@@ -28,6 +28,7 @@ bool isSubsetSum(int arr[], int n, int sum) {
 // Dynamic Programming
 
 /**
+ * 
  *     0 1 2 3 4 5 6 7 8 9 10
  *     ----------------------
  * 0 | 1 0 0 0 0 0 0 0 0 0 0 
@@ -38,7 +39,7 @@ bool isSubsetSum(int arr[], int n, int sum) {
  * 1 | 1 1 1 1 0 0 0 0 1 0 0
  * 7 | 1 1 1 0 0 0 0 1 1 1 (1)
  * 
- * */
+ **/
 
 bool isSubsetsum(int arr[], int n, int sum) {
     bool dp[n + 1][sum + 1] = {0};
