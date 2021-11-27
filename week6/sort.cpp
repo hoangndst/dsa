@@ -53,6 +53,7 @@ public:
     void bubble_sort() {
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - 1 - i; j++) {
+                cout << "time" << endl;
                 if (arr[j] > arr[j + 1]) {
                     swap(arr[j], arr[j + 1]);
                 }
@@ -117,9 +118,6 @@ int main() {
         cin >> arr[i];
     }
     solution s(size);
-    s.set_arr(arr);
-    s.print_arr();
-    s.quick_sort(0, size - 1);
-    s.print_arr();
+    s.bubble_sort();
     return 0;
 }
