@@ -28,6 +28,7 @@ int knapSack_DP(int W, int wt[], int val[], int n) {
     return K[n][W];
 }
 
+
 int main() {
     int n; cin >> n;
     int W; cin >> W;
